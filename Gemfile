@@ -5,6 +5,7 @@ gemspec
 
 gem 'json'
 gem 'twitter'
+gem 'bing_translator'
 
 platforms :jruby do
   gem 'jruby-openssl'
