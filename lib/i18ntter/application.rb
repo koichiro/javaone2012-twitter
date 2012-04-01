@@ -3,17 +3,6 @@
 module I18ntter
   class Application
     def initialize
-    end
-
-    def run
-      init
-      tweet = gets
-      tweet = @bing.translate tweet, :from => 'ja', :to =>'en'
-      puts tweet
-      Twitter.update(tweet)
-    end
-
-    def init
       load File.expand_path("~/.i18ntter/config")
       Twitter.configure do |config|
         config.consumer_key = "ONMnSsNz80Da2vmkX5bA"
@@ -23,5 +12,13 @@ module I18ntter
       end
       @bing = BingTranslator.new '9AD9D7BCF837DE62EF364A24374765773DBA881F'
     end
+
+    def run
+      tweet = gets
+      tweet = @bing.translate tweet, :from => 'ja', :to =>'en'
+      puts tweet
+      Twitter.update(tweet)
+    end
+
   end
 end
